@@ -12,8 +12,8 @@ type MusicContext struct {
 	*gorm.DB
 }
 
-func NewMusicContext(dbname, con string) (*MusicContext, error) {
-	db, err := gorm.Open(dbname, con)
+func NewMusicContext(typedb, con string) (*MusicContext, error) {
+	db, err := gorm.Open(typedb, con)
 	return &MusicContext{
 		DB: db,
 	}, err

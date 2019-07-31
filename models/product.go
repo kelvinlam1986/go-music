@@ -9,7 +9,7 @@ type Product struct {
 	Price float64 `json:"price"`
 	Promotion float64 `json:"promotion"`
 	ProductName string `gorm:"column:productname" json:"productName"`
-	Description string
+	Description string `json:"description"`
 }
 
 func (Product) TableName() string {
