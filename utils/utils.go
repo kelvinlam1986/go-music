@@ -23,3 +23,7 @@ func HashPassword(s *string) error {
 	*s = string(hashedBytes[:])
 	return nil
 }
+
+func CheckPassword(existingHash, incommigPass string) bool {
+	return bcrypt.CompareHashAndPassword([]byte(existingHash), []byte(incommigPass)) == nil
+}

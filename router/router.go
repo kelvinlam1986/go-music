@@ -24,7 +24,9 @@ type Routes struct {
 func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
 
 	productRepository := repositories.NewProductRepository(ctx)
+	customerRepository := repositories.NewCustomerRepository(ctx)
 	productController := controllers.NewProductController(productRepository)
+	customerController := controllers.NewCustomerController(customerRepository)
 
 
 	r.v1 = []route{
@@ -35,6 +37,13 @@ func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
 			Pattern:     "/products",
 			Endpoint:    productController.GetAllProducts,
 			//AuthenLevel: ValidateNone,
+		},
+		{
+			Name: "Sign in",
+			Description: "Sign in",
+			Method: http.MethodPost,
+			Pattern: "/signin",
+			Endpoint: customerController.SignIn,
 		},
 	}
 
