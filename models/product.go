@@ -4,11 +4,11 @@ import "github.com/jinzhu/gorm"
 
 type Product struct {
 	gorm.Model
-	Image string `json:"img"`
-	ImageAlt string `gorm:"column:imgalt" json:"imgAlt"`
+	Image string
+	ImageAlt string `gorm:"column:image_alt"`
 	Price float64 `json:"price"`
 	Promotion float64 `json:"promotion"`
-	ProductName string `gorm:"column:productname" json:"productName"`
+	ProductName string `gorm:"column:product_name"`
 	Description string `json:"description"`
 }
 
