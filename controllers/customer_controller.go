@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 	"go-music/models"
 	"go-music/repositories"
 	"go-music/viewmodels"
@@ -33,6 +34,8 @@ func (controller *CustomerController) GetCustomerById(context *gin.Context) {
 		context.JSON(http.StatusNotFound, gin.H{"error": msg})
 		return
 	}
+
+	logrus.Info(fmt.Sprintf("Found one customer %+v", customer))
 
 	customerVm := viewmodels.CustomerGetByIdVm{
 		Id: customer.ID,
