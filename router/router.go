@@ -25,9 +25,10 @@ type Routes struct {
 func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
 	productRepository := repositories.NewProductRepository(ctx)
 	customerRepository := repositories.NewCustomerRepository(ctx)
+	accountRepository := repositories.NewAccountRepository()
 	productController := controllers.NewProductController(productRepository)
 	customerController := controllers.NewCustomerController(customerRepository)
-
+	accountController := controllers.NewAccountController(accountRepository)
 
 	r.v1 = []route{
 		{
@@ -55,7 +56,8 @@ func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
 	}
 
 	router := gin.New()
-	router.Use(ginerus.Ginerus())
+	router.Use(ginerus.Ginerus(), AuthenticateMiddleware())
+	router.Handle(http.MethodPost, "/authenticate", accountController.SignIn)
 	v1 := router.Group("v1")
 	for _, e := range r.v1 {
 		v1.Handle(e.Method, e.Pattern, e.Endpoint)
