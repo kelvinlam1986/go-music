@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 	"go-music/repositories"
 	"go-music/viewmodels"
 	"net/http"
@@ -34,6 +35,6 @@ func (controller *ProductController) GetAllProducts(context * gin.Context) {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	fmt.Printf("Found %d products\n", len(products))
+	logrus.Info(fmt.Sprintf("Found %d products", len(products)))
 	context.JSON(http.StatusOK, productsVm)
 }

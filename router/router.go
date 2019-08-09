@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/stephenmuss/ginerus"
 	"go-music/controllers"
 	"go-music/repositories"
 	"net/http"
@@ -54,6 +55,7 @@ func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
 	}
 
 	router := gin.New()
+	router.Use(ginerus.Ginerus())
 	v1 := router.Group("v1")
 	for _, e := range r.v1 {
 		v1.Handle(e.Method, e.Pattern, e.Endpoint)

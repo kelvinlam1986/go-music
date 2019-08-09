@@ -57,10 +57,28 @@
 			"revisionTime": "2019-06-03T04:28:36Z"
 		},
 		{
+			"checksumSHA1": "Aulh7C5SVOA4Jzt5eHNH6197Mbk=",
+			"path": "github.com/konsorten/go-windows-terminal-sequences",
+			"revision": "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e",
+			"revisionTime": "2019-02-26T22:47:05Z"
+		},
+		{
 			"checksumSHA1": "FCTkVf8YbFJ4rAHSiFJm/tCiLbY=",
 			"path": "github.com/mattn/go-isatty",
 			"revision": "c1975dc15c1d481e8da23f6ed313bb071136b98f",
 			"revisionTime": "2019-04-24T07:51:23Z"
+		},
+		{
+			"checksumSHA1": "4GI/G+nYyCQ3ltASSBIunUr2LYk=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "de736cf91b921d56253b4010270681d33fdf7cb5",
+			"revisionTime": "2019-08-07T10:34:36Z"
+		},
+		{
+			"checksumSHA1": "4MZ14J4zYUuPF9f0WwRVHeC44Cg=",
+			"path": "github.com/stephenmuss/ginerus",
+			"revision": "50abaab78e01b4b2a61da22f2ca5fcafe0a45b0d",
+			"revisionTime": "2017-11-08T19:38:39Z"
 		},
 		{
 			"checksumSHA1": "O1SEvYOXXQ1eGX82MGI79MI2l5w=",
