@@ -22,7 +22,6 @@ type Routes struct {
 }
 
 func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
-
 	productRepository := repositories.NewProductRepository(ctx)
 	customerRepository := repositories.NewCustomerRepository(ctx)
 	productController := controllers.NewProductController(productRepository)
@@ -44,6 +43,13 @@ func (r *Routes) Init(ctx *repositories.MusicContext) http.Handler {
 			Method: http.MethodPost,
 			Pattern: "/signin",
 			Endpoint: customerController.SignIn,
+		},
+		{
+			Name: "Get Customer By Id",
+			Description: "Get Customer By Id",
+			Method: http.MethodGet,
+			Pattern: "/customers/:id",
+			Endpoint: customerController.GetCustomerById,
 		},
 	}
 

@@ -4,12 +4,11 @@ import "github.com/jinzhu/gorm"
 
 type Customer struct {
 	gorm.Model
-	Name string `json:"name"`
-	FirstName string `gorm:"column:firstName" json:"firstName"`
-	LastName string `gorm:"column:lastName" json:"lastName"`
-	Email string `gorm:"column:email" json:"email"`
+	FirstName string `gorm:"column:first_name"`
+	LastName string `gorm:"column:last_name"`
+	Email string `gorm:"column:email"`
 	Pass string `json:"password"`
-	LoggedIn bool `gorm:"column:loggedin" json:"loggedin"`
+	LoggedIn bool `gorm:"column:logged_in"`
 }
 
 func (Customer) TableName() string {
